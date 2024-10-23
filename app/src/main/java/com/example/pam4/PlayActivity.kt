@@ -3,6 +3,7 @@ package com.example.pam4
 import android.graphics.drawable.Icon
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Done
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,10 +32,8 @@ import androidx.compose.ui.unit.dp
 fun PlayActivity() {
     Column(modifier = Modifier.fillMaxSize()){
         HeaderSection()
-        Text(text = "Kepada Yth,",
-            modifier = Modifier.padding(16.dp))
-        Text(text = "Buya Ramadhan Priyanto",
-            modifier = Modifier.size(16.dp))
+        Text(text = "Kepada Yth,")
+        Text(text = "Buya Ramadhan Priyanto")
         Spacer(modifier = Modifier.size(50.dp))
         DetailSurat(
             judul = "Nama",
@@ -48,51 +49,46 @@ fun PlayActivity() {
         )
         DetailSurat(
             judul = "Keterangan",
-            isinya = "Sabar"
+            isinya = "Sabarr"
         )
-
     }
 }
-
 @Composable
 fun HeaderSection() {
-    Box (
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(color = Color.DarkGray)
-            .padding(15.dp)
+    Box(modifier = Modifier
+        .fillMaxWidth()
+        .background(color = Color.DarkGray)
+        .padding(15.dp)
     ){
-        Row (
-            modifier = Modifier
-
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
-
             Column {
-                Text(
-                    text = "Daerah Istimewa Jogjakarta",
+                Text(text = "Daerah Istimewa Yogyakarta",
                     color = Color.White
                 )
                 Text(
-                    text = "FAX : 0",
+                    text = "fAX : 021-121212, Tlp : 0821111",
                     color = Color.White
-
                 )
             }
             Box (
                 contentAlignment = Alignment.BottomStart
             ){
                 Image(
-                    painter = painterResource(id =  R.drawable.download),
-                    contentDescription = "",
-                    modifier = Modifier
-                        .size(100.dp)
+                    painterResource(id = R.drawable.download),
+                    contentDescription = "", modifier = Modifier.size(100.dp)
                         .clip(CircleShape)
+                )
+                Icon(imageVector = Icons.Filled.Done,
+                    contentDescription = null
                 )
             }
         }
     }
 }
-
 @Composable
 fun DetailSurat(
     judul:String, isinya : String
